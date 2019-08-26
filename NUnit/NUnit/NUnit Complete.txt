@@ -1,0 +1,456 @@
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+									NUnit
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Installation NugetPackage: 
+-----------------------
+
+NUnit
+NUnit.Console
+NUnit.Console.Runner
+NUnit3TestAdapter
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+								Annotation
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+	
+
+
+
+
+Culture	:	Specifies cultures for which a test or fixture should be run
+
+
+Indicates :	Indicates that a test should be skipped unless explicitly run
+
+
+Ignore	:Indicates that a test shouldn't be run for some reason
+
+
+MaxTime	: Specifies the maximum time in milliseconds for a test case to succeed
+
+
+OneTimeSetUp :Identifies methods to be called once prior to any child tests
+
+
+OneTimeTearDown :	Identifies methods to be called once after all child tests
+
+
+Platform :	Specifies platforms for which a test or fixture should be run
+
+
+Random :	Specifies generation of random values as arguments to a parameterized test
+
+
+Repeat :Specifies that the decorated method should be executed multiple times
+
+
+Retry:	Causes a test to rerun if it fails, up to a maximum number of times
+
+
+TearDown:Indicates a method of a TestFixture called immediately after each test method
+
+
+Test:Marks a method of a TestFixture that represents a test
+
+
+TestCase: Marks a method with parameters as a test and provides inline arguments
+
+
+Timeout	:Provides a timeout value in milliseconds for test cases
+
+
+SetUp	:Indicates a method of a TestFixture called immediately before each test method
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+								Assertions
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+Assert.AreEqual(28, _actualFuel); // Tests whether the specified values are equal.
+
+
+Assert.AreNotEqual(28, _actualFuel); // Tests whether the specified values are unequal. Same as AreEqual for numeric values.
+
+
+Assert.AreSame(_expectedRocket, _actualRocket); // Tests whether the specified objects both refer to the same object
+
+
+Assert.AreNotSame(_expectedRocket, _actualRocket); // Tests whether the specified objects refer to different objects
+
+
+Assert.IsTrue(_isThereEnoughFuel); // Tests whether the specified condition is true
+
+
+Assert.IsFalse(_isThereEnoughFuel); // Tests whether the specified condition is false
+
+
+Assert.IsNull(_actualRocket); // Tests whether the specified object is null
+
+
+Assert.IsNotNull(_actualRocket); // Tests whether the specified object is non-null
+
+
+Assert.IsInstanceOf(_actualRocket, typeof(Falcon9Rocket)); // Tests whether the specified object is an instance of the expected type
+
+
+Assert.IsNotInstanceOf(_actualRocket, typeof(Falcon9Rocket)); // Tests whether the specified object is not an instance of type
+
+
+StringAssert.AreEqualIgnoringCase(_expectedBellatrixTitle, "Bellatrix"); // Tests whether the specified strings are equal ignoring their casing
+
+
+StringAssert.Contains(_expectedBellatrixTitle, "Bellatrix"); // Tests whether the specified string contains the specified substring
+
+
+StringAssert.DoesNotContain(_expectedBellatrixTitle, "Bellatrix"); // Tests whether the specified string doesn't contain the specified substring
+
+
+StringAssert.StartsWith(_expectedBellatrixTitle, "Bellatrix"); // Tests whether the specified string begins with the specified substring
+
+
+StringAssert.StartsWith(_expectedBellatrixTitle, "Bellatrix"); // Tests whether the specified string begins with the specified substring
+
+
+StringAssert.IsMatch("(281)388-0388", @"(?d{3})?-? *d{3}-? *-?d{4}"); // Tests whether the specified string matches a regular expression
+
+
+StringAssert.DoesNotMatch("281)388-0388", @"(?d{3})?-? *d{3}-? *-?d{4}"); // Tests whether the specified string does not match a regular expression
+
+
+CollectionAssert.AreEqual(_expectedRockets, _actualRockets); // Tests whether the specified collections have the same elements in the same order and quantity.
+
+
+CollectionAssert.AreNotEqual(_expectedRockets, _actualRockets); // Tests whether the specified collections does not have the same elements or the elements are in a different order and quantity.
+
+
+CollectionAssert.AreEquivalent(_expectedRockets, _actualRockets); // Tests whether two collections contain the same elements.
+
+
+CollectionAssert.AreNotEquivalent(_expectedRockets, _actualRockets); // Tests whether two collections contain different elements.
+
+
+CollectionAssert.AllItemsAreInstancesOfType(_expectedRockets, _actualRockets); // Tests whether all elements in the specified collection are instances of the expected type
+
+
+CollectionAssert.AllItemsAreNotNull(_expectedRockets); // Tests whether all items in the specified collection are non-null
+
+
+CollectionAssert.AllItemsAreUnique(_expectedRockets); // Tests whether all items in the specified collection are unique
+
+
+CollectionAssert.Contains(_actualRockets, falcon9); // Tests whether the specified collection contains the specified element
+
+
+CollectionAssert.DoesNotContain(_actualRockets, falcon9); // Tests whether the specified collection does not contain the specified element
+
+
+CollectionAssert.IsSubsetOf(_expectedRockets, _actualRockets); // Tests whether one collection is a subset of another collection
+
+
+CollectionAssert.IsNotSubsetOf(_expectedRockets, _actualRockets); // Tests whether one collection is not a subset of another collection
+
+
+Assert.Throws<ArgumentNullException>(() => new Regex(null)); // Tests whether the code specified by delegate throws exact given exception of type T
+
+
+
+Assert.That(28, Is.EqualTo(_actualFuel)); // Tests whether the specified values are equal.
+
+
+Assert.That(28, Is.Not.EqualTo(_actualFuel)); // Tests whether the specified values are unequal. Same as AreEqual for numeric values.
+
+
+Assert.That(_expectedRocket, Is.SameAs(_actualRocket)); // Tests whether the specified objects both refer to the same object
+
+
+Assert.That(_expectedRocket, Is.Not.SameAs(_actualRocket)); // Tests whether the specified objects refer to different objects
+
+Assert.That(_isThereEnoughFuel, Is.True); // Tests whether the specified condition is true
+
+
+Assert.That(_isThereEnoughFuel, Is.False); // Tests whether the specified condition is false
+
+
+Assert.That(_actualRocket, Is.Null); // Tests whether the specified object is null
+
+
+Assert.That(_actualRocket, Is.Not.Null); // Tests whether the specified object is non-null
+
+
+Assert.That(_actualRocket, Is.InstanceOf<Falcon9Rocket>()); // Tests whether the specified object is an instance of the expected type
+
+
+Assert.That(_actualRocket, Is.Not.InstanceOf<Falcon9Rocket>()); // Tests whether the specified object is not an instance of type
+
+Assert.That(_actualFuel, Is.GreaterThan(20)); // Tests whether the specified object greater than the specified value
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+								Attributes
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Author Attribute
+----------------- 
+
+
+
+The Author Attribute adds information about the author of the tests. It can be applied to test fixtures and to tests.
+
+The constructor takes the name of the test author and optionally the author's email address. Author can also be specified on a TestFixture or Test attribute.
+
+
+namespace NUnit
+{
+    [Author("Rushit Patel", "abc@gmail.com")]
+    [Author("Shin Chan", "Shin.chan@example.com")]
+    [Author("Another Developer", "email@example.com")]
+    public class Attribute
+    {
+
+
+        [Test(Author = "Shin Chan")]
+        public void Test1()
+        { /* ...
+            
+             
+        */ }
+
+
+        [Test]
+        [Author("RJ Patel")]
+        [Author("Yet Another Developer", "not.my.email@example.com")]
+        public void Test2()
+        {
+            /* ... */
+
+        }
+
+
+    }
+}
+
+
+
+
+
+Range Attribute
+---------------------
+
+
+
+
+ The RangeAttribute is used to specify a range of values to be provided for an individual parameter of a parameterized test method.Since NUnit combines the data provided for each parameter into a set of test cases, data must be provided for all parameters if it is provided for any of them.
+
+RangeAttribute supports the following constructors:
+
+public RangeAttribute(int from, int to);
+public RangeAttribute(int from, int to, int step);
+public RangeAttribute(long from, long to, long step);
+public RangeAttribute(float from, float to, float step);
+public RangeAttribute(double from, double to, double step);
+
+
+
+
+
+        // Range Attribute
+
+
+        [Test]
+        public void MyTest([Values(1, 2, 3)] int x, [Range(0.2, 0.6, 0.2)] double d)
+        {
+          
+
+
+        }
+
+
+
+
+
+
+Random Attribute
+-------------------
+
+The RandomAttribute is used to specify a set of random values to be provided for an individual numeric parameter of a parameterized test method. Since NUnit combines the data provided for each parameter into a set of test cases, data must be provided for all parameters if it is provided for any of them.
+
+// Random Attribute
+
+
+        [Test]
+        public void MyTest3 ([Values(1, 2, 3)] int x, [Random(-1.0, 1.0, 5)] double d)
+
+
+        {
+           //
+        }
+
+
+
+
+
+
+
+CombinatorialAttribute
+--------------------------
+
+
+Combinatorial – test every possible combination of inputs
+Pairwise – ensure that each pair of combinations is tested
+
+
+
+
+The CombinatorialAttribute is used on a test to specify that NUnit should generate test cases for all possible combinations of the individual data items provided for the parameters of a test. Since this is the default, use of this attribute is optional.
+
+
+
+
+
+
+
+
+
+
+
+[Test, Combinatorial]
+public void MyTest([Values(1, 2, 3)] int x, [Values("A", "B")] string s)
+    
+   
+{
+   //
+}
+
+
+
+
+
+
+
+pairwise Attribute  :  More Than Two Inputs
+--------------------
+
+“Pairwise testing is a risk-based replacement for exhaustive testing, as it is not often practical, cost-effective, or realistic when compared to the risk model of the required solution”.
+
+The pairwise technique is normally employed when combinatorial testing generates too many test cases to practically test and works on the premise that most errors are caused by the interaction of just two factors.
+
+[Test, Pairwise]
+public void ExampleTest([Values(1, 2, 3, 4)] int a,  [Values("A", "B", "C")] string b, [Values("x", "y", "z")] string c)
+
+  
+
+{
+    Console.WriteLine(a + " " + b + " " + c);
+}
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+							Parallel Test Execution 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+[assembly: Parallelizable(ParallelScope.Fixtures)]
+
+[assembly: FixtureCreation(FixtureCreationOptions.PerTestCase)]
+
+
+
+
+// Running The Parallel Test At The Classes Level
+-------------------------------------------------
+
+
+[assembly: Parallelizable(ParallelScope.Fixtures)]
+[assembly:LevelOfParallelism(3)]
+
+[TestFixture]
+[Parallelizable(ParallelScope.Fixtures)]
+public class Test
+{
+
+}
+
+
+
+
+
+
+// Runing Parallel Tests Within a class
+----------------------------------------------------
+
+
+[assembly: Parallelizable(ParallelScope.All)]
+[assembly:LevelOfParallelism(3)]
+
+
+ [Parallelizable(ParallelScope.All)]
+public class Test
+{
+
+}
+
+
+
+
+
+{
++   public enum FixtureCreationOptions
++   {
++       Singleton, // = default
++       PerTestCase
++   }
+}
+
+
+|| OR  
+
+
+[Parallelizable(ParallelScope.All)]
+
+
+|| OR 
+
+---------------------------------------------------
+
+Adding the attribute to a class: [Parallelizable(ParallelScope.Self)] will run your tests in parallel.
+
+• ParallelScope.None indicates that the test may not be run in parallel with other tests.
+
+• ParallelScope.Self indicates that the test itself may be run in parallel with other tests.
+
+• ParallelScope.Children indicates that the descendants of the test may be run in parallel with respect to one another.
+
+• ParallelScope.Fixtures indicates that fixtures may be run in parallel with one another.
+
+
+
+-------------------------------------------------------------------------------------------------------------------------
